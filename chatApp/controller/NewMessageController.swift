@@ -12,16 +12,11 @@ import Firebase
 class NewMessageController: UITableViewController {
     let cellid = "cellid"
     var users = [User]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         tableView.register(UserCell.self, forCellReuseIdentifier: cellid)
-        
         fetchUser()
-        
-        
     }
     
     func fetchUser()  {
@@ -42,30 +37,11 @@ class NewMessageController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                
-                
-                
             }
-            
-            
-            
-            
-            
-           
        // print(snapshot)
-            
-            
         }, withCancel: nil)
-        
-        
-        
-        
-    }
-    
-    
-    
+     }
     @objc func handleCancel(){
-        
         dismiss(animated: true, completion: nil)
     }
 
@@ -74,20 +50,12 @@ class NewMessageController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let user = users[indexPath.row]
-        
-        
       //  let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellid)
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
         cell.textLabel?.text = user.nam
         cell.detailTextLabel?.text = user.emal
-        
        return cell
-        
-        
     }
-    
-
 }
 
 class UserCell: UITableViewCell {
@@ -98,7 +66,5 @@ class UserCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
 }

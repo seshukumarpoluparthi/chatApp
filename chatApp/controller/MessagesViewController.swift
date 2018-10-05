@@ -10,12 +10,9 @@ import UIKit
 import Firebase
 
 class MessagesViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        
         let image = UIImage(named: "edit")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
         
@@ -51,24 +48,17 @@ class MessagesViewController: UITableViewController {
                        let user = User()
                         user.nam = dictionary["name"] as? String
                         self.navigationItem.title = user.nam
-
                     }
-
-                    
-
-
                 }, withCancel: nil)
                 
             }
     }
     @objc func handleLogout() {
-        
         do {
             try Auth.auth().signOut()
         } catch let logoutError {
             print(logoutError)
         }
-        
         let logincontroller = LoginController()
         present(logincontroller, animated: true , completion: nil)
     }

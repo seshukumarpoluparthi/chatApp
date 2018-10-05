@@ -9,6 +9,12 @@
 import UIKit
 import Firebase
 class LoginController: UIViewController {
+    
+    var inputscontainerviewheightAnchor : NSLayoutConstraint?
+    var nametextfieldHeightAnchor : NSLayoutConstraint?
+    var emailtextfieldHeightAnchor : NSLayoutConstraint?
+    var passwordtextfieldHeightAnchor : NSLayoutConstraint?
+    
     lazy var profileImageview : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "mahesh")
@@ -206,10 +212,7 @@ class LoginController: UIViewController {
             loginRegisterSegmentedcontrol.heightAnchor.constraint(equalToConstant: 36)
             ])
     }
-    var inputscontainerviewheightAnchor : NSLayoutConstraint?
-    var nametextfieldHeightAnchor : NSLayoutConstraint?
-    var emailtextfieldHeightAnchor : NSLayoutConstraint?
-    var passwordtextfieldHeightAnchor : NSLayoutConstraint?
+    
 
     func setupInputsContainerview(){
         // need x,y,width,height constraints
